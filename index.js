@@ -14,4 +14,4 @@
 import { AppRegistry } from 'react-native';
 import Root from './app/root';
 
-AppRegistry.registerComponent('ShopReactNative', () => Root);
+AppRegistry.registerComponent('AwesomeProject', () => Root);
