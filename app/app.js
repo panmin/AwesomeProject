@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Navigator,
     View,
-    StatusBar,
-    Platform
 } from 'react-native';
 
 import Splash from './pages/splash';
