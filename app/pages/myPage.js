@@ -4,7 +4,7 @@ import {
     Text,
 } from 'react-native'
 
-export default class homePage extends Component{
+export default class myPage extends Component{
     render(){
         return (
             <View>
