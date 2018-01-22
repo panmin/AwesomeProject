@@ -31,7 +31,7 @@ const myTab = TabNavigator(
                 tabBarIcon: ({ tintColor }) => (
                     <Icon
                         name="user-o"
-                        size={26}
+                        size={24}
                         color={tintColor}
                     />
                 ),
@@ -49,11 +49,14 @@ const myTab = TabNavigator(
                 height: 0
             },
             style:{
-                backgroundColor:'white'
+                backgroundColor:'white',
             },
             labelStyle:{
                 marginTop:1,
                 marginBottom:1
+            },
+            iconStyle:{
+
             }
         },
     }
