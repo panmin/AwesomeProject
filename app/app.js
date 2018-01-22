@@ -16,11 +16,11 @@ const myTab = TabNavigator(
             screen:Home,
             navigationOptions:{
                 tabBarLabel:'首页',
-                tabBarIcon: ({ focused,tintColor }) => (
+                tabBarIcon: ({ tintColor }) => (
                     <Icon
                         name="home"
-                        color={tintColor}
-                    />
+                        size={26}
+                        color={tintColor} />
                 ),
             }
         },
@@ -31,6 +31,7 @@ const myTab = TabNavigator(
                 tabBarIcon: ({ tintColor }) => (
                     <Icon
                         name="user-o"
+                        size={26}
                         color={tintColor}
                     />
                 ),
@@ -39,14 +40,22 @@ const myTab = TabNavigator(
     },
     {
         tabBarPosition:'bottom',
+        lazy: true,
         tabBarOptions: {
+            showIcon: true,
             activeTintColor:'#c1442e',
             inactiveTintColor:'#eaeaea',
-            lazy: true,
             indicatorStyle: {
                 height: 0
+            },
+            style:{
+                backgroundColor:'white'
+            },
+            labelStyle:{
+                marginTop:1,
+                marginBottom:1
             }
-        }
+        },
     }
 );
 const Navigator = StackNavigator(
