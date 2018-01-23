@@ -12,14 +12,14 @@ export default class Banner extends Component{
     constructor(props){
         super(props);
         this.state= {
-            banners: [{
+            banners: [/*{
                 ad_id:0,
                 gid:0,
                 ad_code:'',
                 ad_link:'',
                 ad_name:'',
                 media_type:0,
-            }]
+            }*/]
         }
     }
     render(){
@@ -46,7 +46,7 @@ export default class Banner extends Component{
                             }}
                         >
                             <Image
-                                style={{width:CommonStyles.screenWidth}}
+                                style={{width:CommonStyles.window.width}}
                                 source={{uri:banner.ad_code}}
                             />
                         </TouchableWithoutFeedback>

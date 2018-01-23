@@ -7,11 +7,12 @@ export const colors = {
 
 };
 
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+
 const commonStyles = StyleSheet.create({
-    screenWidth:screenWidth,
-    screenHeight:screenHeight,
+    window:{
+        width:Dimensions.get('window').width,
+        height:Dimensions.get('window').height,
+    },
 });
 
 export default commonStyles;

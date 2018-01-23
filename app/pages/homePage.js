@@ -15,7 +15,7 @@ export default class homePage extends Component{
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
         getHome(result=>{
             console.log(result);
         },err=>{
