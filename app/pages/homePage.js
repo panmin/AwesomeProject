@@ -3,12 +3,30 @@ import {
     View,
     Text,
 } from 'react-native'
+import Banner from '../components/banner';
+
+import {getHome} from '../actions/homeAction';
 
 export default class homePage extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            IndexInfo:{}
+        }
+    }
+
+    componentDidMount(){
+        getHome(result=>{
+            console.log(result);
+        },err=>{
+            console.log(err);
+        })
+    }
+
     render(){
         return (
             <View>
-                <Text>home</Text>
+                {/*<Banner banners={}/>*/}
             </View>
         );
     }
