@@ -15,9 +15,11 @@ export default class homePage extends Component{
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         getHome(result=>{
-            console.log(result);
+            this.setState({
+                IndexInfo:result
+            })
         },err=>{
             console.log(err);
         })
@@ -25,9 +27,7 @@ export default class homePage extends Component{
 
     render(){
         return (
-            <View>
-                {/*<Banner banners={}/>*/}
-            </View>
+            <Banner/>
         );
     }
 }

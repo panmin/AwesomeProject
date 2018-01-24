@@ -8,6 +8,7 @@ const http = {
         fetch(url)
             .then((response)=>response.text())
             .then(responseText=>{
+                console.log("url="+url+",result="+responseText);
                 const result = JSON.parse(responseText);
                 successCallback(result);
             })

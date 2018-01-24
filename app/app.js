@@ -40,7 +40,9 @@ const myTab = TabNavigator(
     },
     {
         tabBarPosition:'bottom',
-        lazy: true,
+        swipeEnabled:false,
+        animationEnabled:false,
+        lazyLoad: true,
         tabBarOptions: {
             showIcon: true,
             activeTintColor:'#c1442e',
@@ -78,9 +80,7 @@ class App extends Component {
     render() {
 
         return (
-            <View style={{flex: 1}}>
-                <Navigator/>
-            </View>
+            <Navigator/>
         )
     }
 }
