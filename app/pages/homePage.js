@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text,
+    Image,
+    StatusBar,
 } from 'react-native'
+import Toolbar from '../components/Toolbar'
 import Banner from '../components/banner';
 
 import {getHome} from '../actions/homeAction';
@@ -27,7 +29,28 @@ export default class homePage extends Component{
 
     render(){
         return (
-            <Banner banners={this.state.IndexInfo.ad}/>
+            <View style={{flex:1,flexDirection:'column'}}>
+                <View
+                    style={{
+                        justifyContent:'center',
+                        alignItems:'center',
+                    }}
+                    >
+                <Image key={'centerImage'}
+                       style={{
+                           height:48,
+                           resizeMode:'center',
+
+
+                       }}
+                       source={require('../resources/imgs/logo.png')}/>
+                </View>
+                <Toolbar leftButton={'angle-left'}
+                         centerImage={require('../resources/imgs/logo.png')}
+                         rightButton={'bell-o'}
+                />
+                <Banner banners={this.state.IndexInfo.ad}/>
+            </View>
         );
     }
 }

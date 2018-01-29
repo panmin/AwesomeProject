@@ -16,8 +16,11 @@ export default class Banner extends Component{
     constructor(props) {
         super(props);
         this.state=({
-            banners:[]
+            banners:[],
         })
+    }
+    componentDidMount(){
+
     }
 
     componentWillReceiveProps(nextProps){
@@ -27,62 +30,42 @@ export default class Banner extends Component{
         })
     }
 
-    render(){
+    render() {
+
         return (
             <Swiper style={styles.imgWrapper}
-                    height={200}
-                    showsButtons={true}
+                    loop={true}
+                    index={0}
                     autoplay={true}
                     horizontal={true}
-                    loop={true}
-                    renderPagination={(index,total,context)=>{
-                        return (
-                            <View style={{
-                                position: 'absolute',
-                                bottom: 10,
-                                right: 10
-                            }}>
-                                <Text style={{color: 'grey'}}>
-                                    <Text style={{
-                                        color: 'white',
-                                        fontSize: 20
-                                    }}>{index + 1}</Text>/{total}
-                                </Text>
-                            </View>
-                        )
-                    }}
+                    removeClippedSubviews={false}
+                    dot={<View style={{
+                        backgroundColor: 'rgba(0,0,0,.2)',
+                        width: 8,
+                        height: 8,
+                        borderRadius: 4,
+                        marginLeft: 3,
+                        marginRight: 3
+                    }}/>}
+                    activeDot={<View style={{
+                        backgroundColor: '#12a230',
+                        width: 8,
+                        height: 8,
+                        borderRadius: 4,
+                        marginLeft: 3,
+                        marginRight: 3
+                    }}/>}
             >
-                {this.state.banners.map((banner,key)=> {
-                    return(
-                        <Image key={key} resizeMode="cover" source={{uri: banner.ad_code}} style={styles.bannerImg}/>
+                {this.state.banners.map((banner, key) => {
+                    return (
+                        <Image key={key} resizeMode="cover" source={{uri: banner.ad_code}}
+                               style={styles.bannerImg}/>
                     )
                 })}
             </Swiper>
         )
     }
 }
-/*
-render() {
-    return(
-        <Swiper style={styles.imgWrapper}
-                showsButtons={true} autoplay={true}
-        >
-            <View style={styles.imgView}>
-                <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-            </View>
-            <View style={styles.imgView}>
-                <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-            </View>
-            <View style={styles.imgView}>
-                <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-            </View>
-            <View style={styles.imgView}>
-                <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-            </View>
-        </Swiper>
-    )
-}
-}*/
 
 const styles = StyleSheet.create({
     imgWrapper: {
