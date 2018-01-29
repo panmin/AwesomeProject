@@ -30,60 +30,34 @@ export default class Banner extends Component{
     render(){
         return (
             <Swiper style={styles.imgWrapper}
-                    showsButtons={true} autoplay={true}
+                    height={200}
+                    showsButtons={true}
+                    autoplay={true}
+                    horizontal={true}
+                    loop={true}
+                    renderPagination={(index,total,context)=>{
+                        return (
+                            <View style={{
+                                position: 'absolute',
+                                bottom: 10,
+                                right: 10
+                            }}>
+                                <Text style={{color: 'grey'}}>
+                                    <Text style={{
+                                        color: 'white',
+                                        fontSize: 20
+                                    }}>{index + 1}</Text>/{total}
+                                </Text>
+                            </View>
+                        )
+                    }}
             >
                 {this.state.banners.map((banner,key)=> {
                     return(
-                        <View style={styles.imgView} key={key}>
-                            <Image source={{uri: banner.ad_link}} style={styles.bannerImg}/>
-                        </View>
+                        <Image key={key} resizeMode="cover" source={{uri: banner.ad_code}} style={styles.bannerImg}/>
                     )
                 })}
-                /*<View style={styles.imgView}>
-                    <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-                </View>
-                <View style={styles.imgView}>
-                    <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-                </View>
-                <View style={styles.imgView}>
-                    <Image source={{uri:"https://www.baidu.com/img/bd_logo1.png"}} style={styles.bannerImg} />
-                </View>*/
             </Swiper>
-            /*<Swiper
-                height={200}
-                loop={true}
-                autoplay={true}
-                style={{ flex: 1}}
-            >
-                {this.state.banners.map((banner,key)=>{
-                    return (
-                        <TouchableWithoutFeedback
-                            key={key}
-                            onPress={()=>{
-                                switch (banner.media_type){
-                                    case 2:{//H5链接
-                                        console.log(banner.ad_link);
-                                        break;
-                                    }
-                                    case 3:{//3、商品详情
-                                        console.log(banner.gid);
-                                        break;
-                                    }
-                                    case 4:{//4、文章详情
-                                        console.log(banner.id);
-                                        break;
-                                    }
-                                }
-                            }}
-                        >
-                            <Image
-                                style={{width:CommonStyles.window.width,height:200}}
-                                source={{uri:banner.ad_code}}
-                            />
-                        </TouchableWithoutFeedback>
-                    )
-                })}
-            </Swiper>*/
         )
     }
 }
@@ -112,16 +86,11 @@ render() {
 
 const styles = StyleSheet.create({
     imgWrapper: {
-        width: '100%',
-        height: 200,
-    },
-    imgView: {
-        flex: 1,
+        width: CommonStyles.window.width,
         height: 200,
     },
     bannerImg: {
-        width: '100%',
-        height: 200,
-        flex: 1
+        width: CommonStyles.window.width,
+        height: 200
     }
 });

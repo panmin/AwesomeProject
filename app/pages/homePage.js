@@ -27,7 +27,7 @@ export default class homePage extends Component{
 
     render(){
         return (
-            <Banner/>
+            <Banner banners={this.state.IndexInfo.ad}/>
         );
     }
 }
